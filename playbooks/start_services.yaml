@@ -19,7 +19,7 @@
     service:
       name: cdp-agent
       state: started
-   ignore_errors: true
+    ignore_errors: true
 
 
   - name: Stop Filebeat
