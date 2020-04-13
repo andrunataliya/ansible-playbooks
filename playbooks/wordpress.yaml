@@ -1,0 +1,37 @@
+---
+- name: Install Wordpress on CentOS 7
+  hosts: 34.243.231.137
+  become: true
+  become_method: sudo
+  tasks: 
+  - name: Install httpd package
+    package: 
+      name: Wordpress
+      state: latest
+      with_items:
+       - yum-utils
+       - epel-release
+       - httpd
+       - php
+       - php72
+       - php php-mysql
+       - wget
+       - unzip
+       - mariadb-server
+       - mysql
+     ignore_errors: true
+
+
+   - name: Install epel-release
+     shell: "sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y"
+   - name: Enable config manager
+     shell: "sudo yum-config-manager  --enable  remi-php72"
+
+
+   - name: Download wordpress
+     get_url:
+       url: https://wordpress.org/latest.tar.gz
+       dest: /tmp/
+
+
+
