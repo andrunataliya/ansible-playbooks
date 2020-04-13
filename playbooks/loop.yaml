@@ -1,0 +1,27 @@
+---
+- name: Loop
+  hosts: 34.243.231.137
+  become: true
+  become_method: sudo
+  connection: ssh
+  ignore_errors: false
+  tasks:
+    - name: Loop
+      package: 
+        name: "{{item}}"
+        state: present
+      with_items:
+        - yum_utils
+        - epel-release
+        - httpd
+        - php
+        - php72
+        - php php-mysql
+        - wget
+        - unzip
+        - mariadb-server
+        - mysql
+
+
+     - name: Command
+       command: "{{item}}"
