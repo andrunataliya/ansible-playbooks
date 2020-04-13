@@ -15,7 +15,6 @@
         - httpd
         - php
         - php72
-        - php php-mysql
         - wget
         - unzip
         - mariadb-server
