@@ -8,8 +8,6 @@
     package: 
       name: Wordpress
       state: latest
-      with_items:
-       - yum-utils
        - epel-release
        - httpd
        - php
