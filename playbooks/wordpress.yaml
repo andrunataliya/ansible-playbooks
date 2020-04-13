@@ -14,6 +14,7 @@
       - php
       - wget
       - unzip
+      - tar
       - mariadb-server
       - mysql
     ignore_errors: true
