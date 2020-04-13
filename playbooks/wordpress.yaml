@@ -43,7 +43,7 @@
 
   - name: Move files to html directory
     shell: "sudo mv /var/www/html/wordpress/* /var/www/html"
-    ignore_errors: true
+    ignore_errors: yes
 
 
   - name: Move index.html
@@ -57,6 +57,6 @@
       name: httpd
       state: restarted
       enabled: yes
-    ignore_errors: true
+    ignore_errors: yes
 
 
