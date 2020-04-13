@@ -16,7 +16,6 @@
       - unzip
       - mariadb-server
       - mysql
-      - 
     ignore_errors: true
 
 
@@ -54,12 +53,21 @@
     ignore_errors: true
 
 
-
   - name: Restart apache
     systemd:
       name: httpd
       state: restarted
       enabled: yes
     ignore_errors: yes
+
+  - name: Route53 A record 
+    route53:
+      state: present
+      zone: devops-guru-master.com
+      record: wordpress.devops-guru-master.com
+      type: A
+      ttl: 7200
+      value: 34.243.231.137
+      wait: yes
 
 
