@@ -19,7 +19,7 @@
        - unzip
        - mariadb-server
        - mysql
-     ignore_errors: true
+      ignore_errors: true
 
 
    - name: Install epel-release
