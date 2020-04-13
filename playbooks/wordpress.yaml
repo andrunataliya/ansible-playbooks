@@ -32,13 +32,13 @@
 
   - name: Download wordpress
     get_url:
-      url: https://wordpress.org/latest.zip
+      url: https://wordpress.org/latest.tar.gz
       dest: /tmp/
 
 
   - name: Unzip wordpress
     unarchive:
-      src: /tmp/latest.zip
+      src: /tmp/wordpress-5.4.tar.gz
       dest: /var/www/html
       remote_src: yes
 
