@@ -22,41 +22,41 @@
       ignore_errors: true
 
 
-   - name: Install epel-release
-     shell: "sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y"
-   - name: Enable config manager
-     shell: "sudo yum-config-manager  --enable  remi-php72"
+  - name: Install epel-release
+    shell: "sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y"
+  - name: Enable config manager
+    shell: "sudo yum-config-manager  --enable  remi-php72"
 
 
-   - name: Download wordpress
-     get_url:
-       url: https://wordpress.org/latest.tar.gz
-       dest: /tmp/
+  - name: Download wordpress
+    get_url:
+      url: https://wordpress.org/latest.tar.gz
+      dest: /tmp/
 
 
-   - name: Unzip wordpress
-     unarchive:
-        src: /tmp/latest.tar.gz
-        dest: /var/www/html
-        remote_src: yes
+  - name: Unzip wordpress
+    unarchive:
+      src: /tmp/latest.tar.gz
+      dest: /var/www/html
+      remote_src: yes
 
 
-   - name: Move files to html directory
-     shell: "sudo mv /var/www/html/wordpress/* /var/www/html"
-     ignore_errors: true
+  - name: Move files to html directory
+    shell: "sudo mv /var/www/html/wordpress/* /var/www/html"
+    ignore_errors: true
 
 
-   - name: Move index.html
-     shell: "sudo mv /var/www/html/index.html /tmp/"
-     ignore_errors: true
+  - name: Move index.html
+    shell: "sudo mv /var/www/html/index.html /tmp/"
+    ignore_errors: true
 
 
 
-   - name: Restart apache
-     systemd:
-       name: httpd
-       state: restarted
-       enabled: yes
-     ignore_erros: true
+  - name: Restart apache
+    systemd:
+      name: httpd
+      state: restarted
+      enabled: yes
+    ignore_erros: true
 
 
