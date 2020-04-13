@@ -8,16 +8,18 @@
     package: 
       name: Wordpress
       state: latest
-       - epel-release
-       - httpd
-       - php
-       - php72
-       - php php-mysql
-       - wget
-       - unzip
-       - mariadb-server
-       - mysql
-      ignore_errors: true
+    with_items:
+      - yum_utils
+      - epel-release
+      - httpd
+      - php
+      - php72
+      - php php-mysql
+      - wget
+      - unzip
+      - mariadb-server
+      - mysql
+    ignore_errors: true
 
 
   - name: Install epel-release
