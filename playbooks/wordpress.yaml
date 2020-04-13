@@ -9,7 +9,6 @@
       name: "{{item}}"
       state: latest
     with_items:
-      - yum_utils
       - epel-release
       - httpd
       - php
