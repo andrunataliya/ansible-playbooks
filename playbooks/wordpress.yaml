@@ -6,7 +6,7 @@
   tasks: 
   - name: Install httpd package
     package: 
-      name: andrunataliya_wordpress
+      name: "{{item}}"
       state: latest
     with_items:
       - yum_utils
