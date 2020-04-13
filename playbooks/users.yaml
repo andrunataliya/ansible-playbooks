@@ -1,0 +1,40 @@
+---
+- name: Add users
+  hosts: 34.243.231.137
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Create user Bob
+      user: 
+        name: Bob
+        state: present
+        generate_ssh_key: yes
+      become: yes
+      become_method: sudo
+
+
+    - name: Create user Ben
+      user: 
+        name: Ben
+        state: present
+        generate_ssh_key: yes
+      become: yes
+      become_method: sudo
+
+
+    - name: Create user Lisa
+      user: 
+        name: Lisa
+        state: present
+        generate_ssh_key: yes
+      become: yes
+      become_method: sudo
+
+
+    - name: Create user Katty
+      user: 
+        name: Katty
+        state: present
+        generate_ssh_key: yes
+      become: yes
+      become_method: sudo
