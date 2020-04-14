@@ -1,6 +1,6 @@
 ---
 - name: Loop
-  hosts: 54.70.144.41
+  hosts: 34.243.231.137
   become: true
   become_method: sudo
   connection: ssh
