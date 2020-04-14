@@ -4,54 +4,54 @@
   become: yes
   become_method: sudo
   tasks: 
-  - name: Install httpd package
-    package: 
-      name: "{{item}}"
-      state: latest
-    with_items:
-      - epel-release
-      - php
-      - wget
-      - unzip
-      - mariadb-server
-      - mysql
-    ignore_errors: true
+    - name: Install httpd package
+      package: 
+        name: "{{item}}"
+        state: latest
+      with_items:
+        - epel-release
+        - php
+        - wget
+        - unzip
+        - mariadb-server
+        - mysql
+      ignore_errors: true
 
-  - name: Install epel-release
-    shell: "sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y"
-  - name: Enable config manager
-    shell: "sudo yum-config-manager --enable remi-php72"
-  - name : Install PHP and modules
-    shell: "sudo yum install httpd php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysql mysql -y"
-    ignore_errors: true
-
-
-  - name: Download wordpress
-    get_url:
-      url: https://wordpress.org/latest.tar.gz
-      dest: /tmp/
+    - name: Install epel-release
+      shell: "sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y"
+    - name: Enable config manager
+      shell: "sudo yum-config-manager --enable remi-php72"
+    - name : Install PHP and modules
+      shell: "sudo yum install httpd php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysql mysql -y"
+      ignore_errors: true
 
 
-  - name: Unzip wordpress
-    unarchive:
-      src: "/tmp/wordpress-5.2.1.tar.gz"
-      dest: "/var/www/html"
-      remote_src: yes
+    - name: Download wordpress
+      get_url:
+        url: https://wordpress.org/latest.tar.gz
+        dest: /tmp/
 
 
-  - name: Move files to html directory
-    shell: "sudo mv /var/www/html/wordpress/* /var/www/html"
-    ignore_errors: yes
+    - name: Unzip wordpress
+      unarchive:
+        src: "/tmp/wordpress-5.2.1.tar.gz"
+        dest: "/var/www/html"
+        remote_src: yes
 
 
-  - name: Move index.html
-    shell: "sudo mv /var/www/html/index.html /tmp/"
-    ignore_errors: true
+    - name: Move files to html directory
+      shell: "sudo mv /var/www/html/wordpress/* /var/www/html"
+      ignore_errors: yes
 
 
-  - name: Restart apache
-    systemd:
-      name: httpd
-      state: restarted
-      enabled: yes
-    ignore_errors: yes
+    - name: Move index.html
+      shell: "sudo mv /var/www/html/index.html /tmp/"
+      ignore_errors: true
+
+
+    - name: Restart apache
+      systemd:
+        name: httpd
+        state: restarted
+        enabled: yes
+      ignore_errors: yes
