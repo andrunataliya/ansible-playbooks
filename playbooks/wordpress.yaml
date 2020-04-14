@@ -24,6 +24,7 @@
     shell: "sudo yum-config-manager --enable remi-php72"
   - name : Install PHP and modules
     shell: "sudo yum install php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysqlnd"
+    ignore_errors: true
 
 
   - name: Download wordpress
@@ -55,17 +56,3 @@
       state: restarted
       enabled: yes
     ignore_errors: yes
-
-
-
-- name: Create Route53
-  hosts: localhost
-  tasks:
-    - name: Route53 A Record
-      route53:
-        state: "present"
-        zone: "devops-guru-master.com"
-        record: "wordpress.devops-guru-master.com"
-        type: A
-        ttl: 7200
-        value: "54.70.144.41"
