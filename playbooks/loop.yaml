@@ -17,7 +17,6 @@
         - php72
         - wget
         - unzip
-        - tar
         - mariadb-server
         - mysql
 
