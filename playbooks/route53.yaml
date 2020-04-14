@@ -1,0 +1,12 @@
+---
+- name: Create Route53
+  hosts: 54.70.144.41
+  tasks:
+    - name: Route53 a record
+      route53:
+        state: "present"
+        zone: "devops-guru-master.com"
+        record: "wordpress.devops-guru-master.com"
+        type: A
+        ttl: 7200
+        value: "54.70.144.41"
