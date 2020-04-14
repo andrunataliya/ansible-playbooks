@@ -1,6 +1,6 @@
 ---
 - name: Install Wordpress on CentOS 7
-  hosts: 34.243.231.137
+  hosts: 54.162.111.45
   become: yes
   become_method: sudo
   tasks: 
