@@ -20,10 +20,10 @@
 
   - name: Install epel-release
     shell: "sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y"
-  - name: config manager enabled 
+  - name: Enable config manager
     shell: "sudo yum-config-manager --enable remi-php72"
-  - name : update httpd PHP 
-    shell: "sudo yum install httpd php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysql mysql -y" 
+  - name : Install PHP and modules
+    shell: "sudo yum install php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysqlnd"
 
 
   - name: Download wordpress
