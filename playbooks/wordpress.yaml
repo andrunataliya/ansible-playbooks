@@ -28,7 +28,7 @@
 
   - name: Download wordpress
     get_url:
-      url: https://wordpress.org/wordpress-5.2.1.tar.gz
+      url: https://wordpress.org/latest.tar.gz
       dest: /tmp/
 
 
