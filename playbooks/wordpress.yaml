@@ -19,7 +19,14 @@
       - mysql
     ignore_errors: true
 
- 
+  - name: Install epel-release
+    shell: "sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y"
+  - name: config manager enabled 
+    shell: "sudo yum-config-manager --enable remi-php72"
+  - name : update httpd PHP 
+    shell: "sudo yum install httpd php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysql mysql -y" 
+
+
   - name: Download wordpress
     get_url:
       url: https://wordpress.org/latest.tar.gz
@@ -52,3 +59,14 @@
 
 
 
+- name: Create Route53
+  hosts: 54.70.144.41
+  tasks:
+    - name: Route53 a record
+      route53:
+        state: "present"
+        zone: "devops-guru-master.com"
+        record: "wordpress.devops-guru-master.com"
+        type: A
+        ttl: 7200
+        value: "54.70.144.41"
