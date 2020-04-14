@@ -53,11 +53,11 @@
   - name: Route53 A record 
     route53:
       state: present
-      zone: devops-guru-master.com
-      record: wordpress.devops-guru-master.com
+      zone: "devops-guru-master.com"
+      record: "wordpress.devops-guru-master.com"
       type: A
       ttl: 7200
-      value: 3.8.152.138
+      value: "3.8.152.138"
       wait: yes
 
 
