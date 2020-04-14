@@ -12,9 +12,7 @@
         state: present
       with_items:
         - epel-release
-        - httpd
         - php
-        - php72
         - wget
         - unzip
         - mariadb-server
