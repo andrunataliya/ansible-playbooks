@@ -1,7 +1,7 @@
 ---
 - name: Install Wordpress on CentOS 7
   hosts: 34.243.231.137
-  become: true
+  become: yes
   become_method: sudo
   tasks: 
   - name: Install httpd package
