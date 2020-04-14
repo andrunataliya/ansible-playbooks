@@ -22,7 +22,7 @@
   - name: Enable config manager
     shell: "sudo yum-config-manager --enable remi-php72"
   - name : Install PHP and modules
-    shell: "sudo yum install php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysqlnd"
+    shell: "sudo yum install httpd php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysql mysql -y"
     ignore_errors: true
 
 
