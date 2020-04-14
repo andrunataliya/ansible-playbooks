@@ -15,7 +15,7 @@
         - unzip
         - mariadb-server
         - mysql
-      ignore_errors: true
+      ignore_errors: yes
 
     - name: Install epel-release
       shell: "sudo yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y"
@@ -23,7 +23,7 @@
       shell: "sudo yum-config-manager --enable remi-php72"
     - name : Install PHP and modules
       shell: "sudo yum install httpd php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysql mysql -y"
-      ignore_errors: true
+      ignore_errors: yes
 
 
     - name: Download wordpress
