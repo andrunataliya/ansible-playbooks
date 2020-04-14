@@ -10,7 +10,6 @@
       state: latest
     with_items:
       - epel-release
-      - httpd
       - php
       - wget
       - unzip
